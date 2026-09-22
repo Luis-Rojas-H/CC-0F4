@@ -11,7 +11,7 @@ El énfasis está en comprender los componentes, experimentar, medir resultados,
 > **Periodo:** 2026-2  
 > **Créditos:** 4  
 > **Horas semanales:** 6 horas  
-> **Teoría:** lunes de 6:00 p. m. a 8:00 p. m.  
+> **Teoría:** miércoles de 6:00 p. m. a 8:00 p. m.  
 > **Laboratorio:** jueves de 4:00 p. m. a 8:00 p. m.
 
 #### Descripción del curso
