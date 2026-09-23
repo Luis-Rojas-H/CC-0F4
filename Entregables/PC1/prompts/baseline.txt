@@ -1,0 +1,23 @@
+TAREA
+Decide si el perfil puede postular a la oferta.
+
+ENTRADA
+Oferta:
+{extracto}
+
+Perfil:
+{perfil}
+
+CONTEXTO
+{contexto}
+
+CONTRATO
+Devuelve SOLO un objeto JSON válido con:
+- label: elegible | no_elegible | informacion_insuficiente
+- requisito_decisivo: una frase
+- reason: una frase
+
+Reglas:
+- no agregues campos
+- no uses Markdown
+- no escribas nada fuera del objeto JSON

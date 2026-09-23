@@ -1,0 +1,27 @@
+TAREA
+Decide si el perfil puede postular a la oferta.
+Usa únicamente el CONTEXTO como regla de elegibilidad.
+La ENTRADA describe el puesto y el perfil.
+No uses la experiencia, el cargo ni el software para ampliar quién puede postular.
+Si el perfil no indica carrera o condición académica, responde informacion_insuficiente.
+
+ENTRADA
+Oferta:
+{extracto}
+
+Perfil:
+{perfil}
+
+CONTEXTO
+{contexto}
+
+CONTRATO
+Devuelve SOLO un objeto JSON válido con:
+- label: elegible | no_elegible | informacion_insuficiente
+- requisito_decisivo: una frase
+- reason: una frase
+
+Reglas:
+- no agregues campos
+- no uses Markdown
+- no escribas nada fuera del objeto JSON
