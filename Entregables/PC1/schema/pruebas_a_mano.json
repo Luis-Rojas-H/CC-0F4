@@ -1,0 +1,46 @@
+[
+  {
+    "nombre": "schema_valido_etiqueta_incorrecta",
+    "caso": "E02",
+    "gold": "no_elegible",
+    "texto": "{\"label\": \"elegible\", \"requisito_decisivo\": \"bachiller de Ingeniería Civil\", \"reason\": \"tiene la carrera de la oferta\"}",
+    "esperado": {
+      "parseable": true,
+      "schema_valido": true,
+      "etiqueta_correcta": false
+    }
+  },
+  {
+    "nombre": "no_parsea",
+    "caso": "E02",
+    "gold": "no_elegible",
+    "texto": "la respuesta es no",
+    "esperado": {
+      "parseable": false,
+      "schema_valido": false,
+      "etiqueta_correcta": null
+    }
+  },
+  {
+    "nombre": "parsea_pero_label_fuera_del_enum",
+    "caso": "E02",
+    "gold": "no_elegible",
+    "texto": "{\"label\": \"alto\", \"requisito_decisivo\": \"bachiller\", \"reason\": \"parece calificado\"}",
+    "esperado": {
+      "parseable": true,
+      "schema_valido": false,
+      "etiqueta_correcta": null
+    }
+  },
+  {
+    "nombre": "schema_valido_etiqueta_correcta",
+    "caso": "E02",
+    "gold": "no_elegible",
+    "texto": "{\"label\": \"no_elegible\", \"requisito_decisivo\": \"bachilleres está en 0\", \"reason\": \"la oferta solo acepta alumnos del ciclo 8 al 10\"}",
+    "esperado": {
+      "parseable": true,
+      "schema_valido": true,
+      "etiqueta_correcta": true
+    }
+  }
+]

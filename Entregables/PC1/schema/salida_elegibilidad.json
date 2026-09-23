@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "label": {
+      "type": "string",
+      "enum": ["elegible", "no_elegible", "informacion_insuficiente"]
+    },
+    "requisito_decisivo": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": ["label", "requisito_decisivo", "reason"],
+  "additionalProperties": false
+}
