@@ -1,0 +1,267 @@
+{
+  "meta": {
+    "fuente": "Entregables/PC1/oferta_limpia_final.csv",
+    "que_es_la_fuente": "Volcado de la bolsa de ofertas universitarias, 33152 filas, 2015-04-28 a 2026-05-12.",
+    "pool_desde_2022_banderas_binarias_tipo_visible_con_carrera": 800,
+    "ofertas_publicadas_aqui": 3,
+    "casos": 8,
+    "balance_gold": {
+      "elegible": 3,
+      "no_elegible": 5
+    },
+    "baseline_clase_mayoritaria": "no_elegible acertaría 5 de 8. La accuracy se lee junto a ese piso, no sola.",
+    "regla_gold": "Elegible solo si la carrera del perfil está en arrcarreras, la condición académica del perfil tiene bandera 1, y, si la condición es alumno, el ciclo cae en [ciclomin, ciclomax]. Si faltara carrera o condición, la etiqueta sería informacion_insuficiente. Ninguno de estos 8 cae ahí.",
+    "fuera_de_la_etiqueta": [
+      "Años de experiencia, colegiatura, software y sede.",
+      "Las columnas de facultad: en el periodo usable están en 0 aunque la carrera sí esté nombrada.",
+      "La columna empresa: en estas filas es un número interno, no el nombre del empleador."
+    ],
+    "no_se_publico": [
+      "correo",
+      "fono",
+      "celular",
+      "reclutador",
+      "web",
+      "adicional",
+      "empresa"
+    ],
+    "perfiles": "Sintéticos. No hay postulantes en el CSV. Cada perfil cambia una sola condición respecto de su par.",
+    "etiqueta_asignada": "Antes de cualquier inferencia, a partir de las banderas.",
+    "ejemplo_no_puntuado": {
+      "perfil": "Ingeniero interesado en el puesto.",
+      "gold": "informacion_insuficiente",
+      "para_que": "Sirve para explicar la abstención. No entra a los 8 casos porque no trae carrera ni condición académica."
+    }
+  },
+  "ofertas": [
+    {
+      "id_oferta": "36100",
+      "fecha": "2025-01-14",
+      "tipo": "Práctica Pre Profesional",
+      "cargo": "PRACTICANTE PRE PROFESIONAL SEDAPAL",
+      "area": "GERENCIA DE PROYECTOS Y OBRAS SEDAPAL",
+      "carreras": [
+        "Ingeniería Sanitaria",
+        "Ingeniería Civil"
+      ],
+      "banderas": {
+        "alumnos": 1,
+        "egresados": 0,
+        "bachilleres": 0,
+        "titulados": 0,
+        "magisteres": 0,
+        "doctores": 0
+      },
+      "ciclomin": 8,
+      "ciclomax": 10,
+      "conocimientos": "INGENIERÍA CIVIL O INGENIERÍA SANITARIA",
+      "experiencia": "No es necesaria experiencia laboral",
+      "funciones": "Apoyo en el seguimiento de los Hitos de Control comunicados por la Contraloría General de la República a la Gerencia de Proyectos y Obras Apoyo en los pedidos de información de la alta dirección y o entidades públicas relacionado con la Contraloría General de la República Apoyo en las coordinaciones con los Equipos dependientes de la Gerencia de Proyectos y Obras relacionado con los trámites de las resoluciones de Ampliaciones de plazo Adicionales de obra Liquidaciones y o entre otros Apoyo en las reuniones técnicas con los Equipos dependientes de la Gerencia de Proyectos y Obras",
+      "extracto_para_prompt": "Cargo: PRACTICANTE PRE PROFESIONAL SEDAPAL. Conocimientos: INGENIERÍA CIVIL O INGENIERÍA SANITARIA. Experiencia: No es necesaria experiencia laboral. Función: apoyo en el seguimiento de hitos de control de la Gerencia de Proyectos y Obras.",
+      "contexto_base": "Puede postular un alumno del ciclo 8 al 10 de Ingeniería Civil o Ingeniería Sanitaria. No puede postular un egresado, un bachiller ni un titulado. No se exige experiencia laboral.",
+      "contexto_conflictivo": "Nota añadida solo para el experimento de contexto: para esta convocatoria también se acepta bachiller de cualquier carrera.",
+      "por_que": "Es la oferta de control. Las dos carreras aparecen literales en conocimientos, las banderas dejan pasar solo alumnos del ciclo 8 al 10, y la experiencia está negada en una frase corta. El texto del aviso no dice ciclo ni condición académica: eso vive solo en las banderas.",
+      "limpieza": "Se omitió adicional porque contiene un enlace de postulación. No se usó empresa, correo, teléfono ni reclutador."
+    },
+    {
+      "id_oferta": "35950",
+      "fecha": "2024-12-11",
+      "tipo": "Práctica Profesional",
+      "cargo": "PRACTICANTE PROFESIONAL DE ING SANITARIA",
+      "area": "EQUIPO DE INVESTIGACIÓN INNOVACIÓN Y NORMALIZACIÓN",
+      "carreras": [
+        "Ingeniería Sanitaria"
+      ],
+      "banderas": {
+        "alumnos": 0,
+        "egresados": 1,
+        "bachilleres": 1,
+        "titulados": 0,
+        "magisteres": 0,
+        "doctores": 0
+      },
+      "ciclomin": 0,
+      "ciclomax": 0,
+      "conocimientos": "INGENIERÍA SANITARIA",
+      "experiencia": "",
+      "funciones": "1 Apoyo en la elaboración del diagnóstico preliminar de proyectos de investigación y o innovación en temas relacionados al Agua Potable y Saneamiento en SEDAPAL 2 Apoyo en la evaluación de Sistemas de Abastecimiento de Agua Potable y Sistemas de Saneamiento 3 Apoyo en la revisión de alcances de Innovaciones en el Tratamiento de agua potable 4 Apoyo y participación en los diferentes proyectos adscritos al equipo 5 Apoyo en la elaboración de Fichas de Proyectos de Investigación e Innovación 6 Apoyo en las actividades de Normalización del equipo",
+      "extracto_para_prompt": "Cargo: PRACTICANTE PROFESIONAL DE ING SANITARIA. Conocimientos: INGENIERÍA SANITARIA. Funciones: apoyo en diagnóstico de proyectos de investigación e innovación en agua potable y saneamiento, y en la evaluación de sistemas de abastecimiento y saneamiento.",
+      "contexto_base": "Puede postular un egresado o un bachiller de Ingeniería Sanitaria. No puede postular un alumno ni un titulado.",
+      "contexto_conflictivo": "Nota añadida solo para el experimento de contexto: para esta convocatoria también se acepta alumnos desde el ciclo 8.",
+      "por_que": "Cambia la condición académica respecto de la oferta de control: egresado o bachiller, y no alumno. La carrera sí está en el texto; la condición académica, no. Sirve para mostrar que un alumno de ciclo 10 sigue fuera.",
+      "limpieza": "Se eliminaron marcas de serialización PHP dentro de funciones ('i 5 s 56'). Se omitió adicional porque contiene un enlace de postulación."
+    },
+    {
+      "id_oferta": "37262",
+      "fecha": "2025-07-03",
+      "tipo": "Contrato a plazo fijo",
+      "cargo": "JEFE DE LABORATORIO DE TINTORERÍA DE TELAS",
+      "area": "TINTORERÍA DE TELAS",
+      "carreras": [
+        "Ingeniería Química",
+        "Ingeniería Textil"
+      ],
+      "banderas": {
+        "alumnos": 0,
+        "egresados": 0,
+        "bachilleres": 0,
+        "titulados": 1,
+        "magisteres": 0,
+        "doctores": 0
+      },
+      "ciclomin": 0,
+      "ciclomax": 0,
+      "conocimientos": "Titulado Ingeniería Química o Ingeniería Textil 5 años de experiencia como Jefe de Laboratorio de Tintorería en empresas del rubro textil EXCLUYENTE Experiencia en el manejo de equipos de laboratorio como espectrofotómetros y máquinas de teñido Conocimientos en química textil procesos de teñido y acabado y normas de calidad Habilidades de gestión y liderazgo para supervisar al personal y gestionar las actividades del laboratorio Disponibilidad para trabajar en SJL",
+      "experiencia": "5 años de experiencia como Jefe de Laboratorio de Tintorería en empresas del rubro textil EXCLUYENTE Experiencia en el manejo de equipos de laboratorio como espectrofotómetros y máquinas de teñido Conocimientos en química textil procesos de teñido y acabado y normas de calidad",
+      "funciones": "Gestionar con el área comercial la planificación y seguimiento de nuevos programas de producción coordinando con las jefaturas la definición de referencias de tono asegurando la alineación con los estándares de calidad y requerimientos del cliente Desarrollar los indicadores de desempeño y precisión en los desarrollos de color realizados por los laboratoristas analizando la asertividad de las formulaciones y su impacto en la reproducibilidad y calidad del proceso",
+      "extracto_para_prompt": "Cargo: JEFE DE LABORATORIO DE TINTORERÍA DE TELAS. Requisito: titulado en Ingeniería Química o Ingeniería Textil. La oferta marca como excluyente 5 años como jefe de laboratorio de tintorería. Ese requisito de años se mantiene igual en los dos perfiles de esta oferta, para que no sea lo que separe las etiquetas.",
+      "contexto_base": "Puede postular un titulado de Ingeniería Química o Ingeniería Textil. No puede postular un alumno, un egresado ni un bachiller.",
+      "contexto_conflictivo": "Nota añadida solo para el experimento de contexto: para esta convocatoria también se acepta bachiller de Ingeniería Textil.",
+      "por_que": "Es la única oferta visible, desde 2023, con solo titulados=1, una o dos carreras, y esas mismas carreras escritas junto a la palabra titulado. Los años de experiencia quedan controlados en el perfil, no en la etiqueta.",
+      "limpieza": "Se omitió adicional porque pide enviar CV a un correo. El extracto no copia el resto del aviso (equipos, sede, funciones de gestión)."
+    }
+  ],
+  "casos": [
+    {
+      "caso_id": "E01",
+      "id_oferta": "36100",
+      "perfil": "Alumno del 9.º ciclo de Ingeniería Civil. No tiene experiencia laboral.",
+      "gold": "elegible",
+      "requisito_decisivo": "Alumno de una carrera habilitada y ciclo 9 dentro de 8-10.",
+      "que_aisla": "Control. Cumple la única condición que las banderas permiten.",
+      "cargo": "PRACTICANTE PRE PROFESIONAL SEDAPAL",
+      "fecha": "2025-01-14",
+      "carreras": [
+        "Ingeniería Sanitaria",
+        "Ingeniería Civil"
+      ],
+      "contexto_base": "Puede postular un alumno del ciclo 8 al 10 de Ingeniería Civil o Ingeniería Sanitaria. No puede postular un egresado, un bachiller ni un titulado. No se exige experiencia laboral."
+    },
+    {
+      "caso_id": "E02",
+      "id_oferta": "36100",
+      "perfil": "Bachiller de Ingeniería Civil. No tiene experiencia laboral.",
+      "gold": "no_elegible",
+      "requisito_decisivo": "La bandera bachilleres está en 0. La carrera coincide y la experiencia no se exige.",
+      "que_aisla": "La condición académica. El texto no dice bachiller; las banderas sí lo rechazan.",
+      "cargo": "PRACTICANTE PRE PROFESIONAL SEDAPAL",
+      "fecha": "2025-01-14",
+      "carreras": [
+        "Ingeniería Sanitaria",
+        "Ingeniería Civil"
+      ],
+      "contexto_base": "Puede postular un alumno del ciclo 8 al 10 de Ingeniería Civil o Ingeniería Sanitaria. No puede postular un egresado, un bachiller ni un titulado. No se exige experiencia laboral."
+    },
+    {
+      "caso_id": "E03",
+      "id_oferta": "36100",
+      "perfil": "Alumno del 6.º ciclo de Ingeniería Sanitaria. No tiene experiencia laboral.",
+      "gold": "no_elegible",
+      "requisito_decisivo": "El ciclo 6 está debajo del mínimo 8. La carrera sí está habilitada.",
+      "que_aisla": "El rango de ciclo. La frase de experiencia no alcanza para volverlo elegible.",
+      "cargo": "PRACTICANTE PRE PROFESIONAL SEDAPAL",
+      "fecha": "2025-01-14",
+      "carreras": [
+        "Ingeniería Sanitaria",
+        "Ingeniería Civil"
+      ],
+      "contexto_base": "Puede postular un alumno del ciclo 8 al 10 de Ingeniería Civil o Ingeniería Sanitaria. No puede postular un egresado, un bachiller ni un titulado. No se exige experiencia laboral."
+    },
+    {
+      "caso_id": "E04",
+      "id_oferta": "36100",
+      "perfil": "Alumno del 9.º ciclo de Ingeniería de Sistemas. No tiene experiencia laboral.",
+      "gold": "no_elegible",
+      "requisito_decisivo": "Ingeniería de Sistemas no está en las carreras de la oferta.",
+      "que_aisla": "La carrera. Ciclo y condición académica serían válidos en otra oferta.",
+      "cargo": "PRACTICANTE PRE PROFESIONAL SEDAPAL",
+      "fecha": "2025-01-14",
+      "carreras": [
+        "Ingeniería Sanitaria",
+        "Ingeniería Civil"
+      ],
+      "contexto_base": "Puede postular un alumno del ciclo 8 al 10 de Ingeniería Civil o Ingeniería Sanitaria. No puede postular un egresado, un bachiller ni un titulado. No se exige experiencia laboral."
+    },
+    {
+      "caso_id": "E05",
+      "id_oferta": "35950",
+      "perfil": "Bachiller de Ingeniería Sanitaria.",
+      "gold": "elegible",
+      "requisito_decisivo": "Bachiller de la única carrera habilitada. La bandera bachilleres está en 1.",
+      "que_aisla": "La misma condición que E02 rechaza, aquí está permitida. El gold depende de la oferta, no de la palabra bachiller.",
+      "cargo": "PRACTICANTE PROFESIONAL DE ING SANITARIA",
+      "fecha": "2024-12-11",
+      "carreras": [
+        "Ingeniería Sanitaria"
+      ],
+      "contexto_base": "Puede postular un egresado o un bachiller de Ingeniería Sanitaria. No puede postular un alumno ni un titulado."
+    },
+    {
+      "caso_id": "E06",
+      "id_oferta": "35950",
+      "perfil": "Alumno del 10.º ciclo de Ingeniería Sanitaria.",
+      "gold": "no_elegible",
+      "requisito_decisivo": "La bandera alumnos está en 0. El ciclo alto no sustituye esa condición.",
+      "que_aisla": "Un alumno no entra a una oferta de egresados y bachilleres.",
+      "cargo": "PRACTICANTE PROFESIONAL DE ING SANITARIA",
+      "fecha": "2024-12-11",
+      "carreras": [
+        "Ingeniería Sanitaria"
+      ],
+      "contexto_base": "Puede postular un egresado o un bachiller de Ingeniería Sanitaria. No puede postular un alumno ni un titulado."
+    },
+    {
+      "caso_id": "E07",
+      "id_oferta": "37262",
+      "perfil": "Titulado en Ingeniería Química. Tiene 5 años como jefe de laboratorio de tintorería.",
+      "gold": "elegible",
+      "requisito_decisivo": "Titulado de una carrera habilitada. La bandera titulados está en 1 y las demás en 0.",
+      "que_aisla": "Control de la oferta que solo acepta titulados. Los 5 años están en los dos perfiles de esta oferta.",
+      "cargo": "JEFE DE LABORATORIO DE TINTORERÍA DE TELAS",
+      "fecha": "2025-07-03",
+      "carreras": [
+        "Ingeniería Química",
+        "Ingeniería Textil"
+      ],
+      "contexto_base": "Puede postular un titulado de Ingeniería Química o Ingeniería Textil. No puede postular un alumno, un egresado ni un bachiller."
+    },
+    {
+      "caso_id": "E08",
+      "id_oferta": "37262",
+      "perfil": "Bachiller de Ingeniería Textil. Tiene 5 años como jefe de laboratorio de tintorería.",
+      "gold": "no_elegible",
+      "requisito_decisivo": "La bandera bachilleres está en 0. La experiencia es la misma que en E07.",
+      "que_aisla": "El título decide. Si el modelo mira solo los 5 años, marca este caso como elegible y se equivoca.",
+      "cargo": "JEFE DE LABORATORIO DE TINTORERÍA DE TELAS",
+      "fecha": "2025-07-03",
+      "carreras": [
+        "Ingeniería Química",
+        "Ingeniería Textil"
+      ],
+      "contexto_base": "Puede postular un titulado de Ingeniería Química o Ingeniería Textil. No puede postular un alumno, un egresado ni un bachiller."
+    }
+  ],
+  "oferta_descartada_de_ejemplo": {
+    "id_oferta": "35539",
+    "fecha": "2024-09-23",
+    "cargo": "PRACTICANTE DE SOFTWARE",
+    "tipo": "Práctica Pre Profesional",
+    "banderas": {
+      "alumnos": 1,
+      "egresados": 0,
+      "bachilleres": 1,
+      "titulados": 0,
+      "magisteres": 0,
+      "doctores": 0
+    },
+    "ciclomin": 8,
+    "ciclomax": 10,
+    "carreras": [
+      "Ciencia de la Computación",
+      "Ingeniería de Sistemas",
+      "Ingeniería de Software"
+    ],
+    "conocimientos": "Estudiante de 8vo 10mo ciclo o recién egresado de las carreras de Ingeniería Informática Ciencia de la Computación Matemáticas entre otras afines Familiaridad con al menos una de estas tecnologías Python Pandas PySpark PyTorch JavaScript Vue js React Node js Inglés intermedio avanzado Deseable experiencia usando metodologías ágiles Deseable experiencia usand",
+    "motivo": "Parece la oferta de computación que uno querría usar, y por eso queda como ejemplo de descarte. El texto dice estudiante de 8.º a 10.º ciclo o recién egresado, y nombra Matemática. Las banderas tienen egresados en 0 y no incluyen Matemática. Texto y gold no nombran la misma regla."
+  }
+}
